@@ -1,0 +1,49 @@
+{=(main):
+To get information about **slots** do: `-chance slots`
+To get information about **bet** do: `-chance bet`
+To get information about **rob** do: `-chance rob`
+To get information about **heist** do: `-chance heist`
+To get information about **events** do: `-chance events`}
+{=(list): rob bet gamble slots heist events bankrob tim}
+
+{=(rob):
+- 60% approximately.
+- Overall its completely **random** if you fall in that 60% or not.
+- Alcohol helps in boosting this chance to a higher value.}
+{=(heist):
+- Basically, **the more people you have, the better.**
+- 16.58% chance with 2 people joining. 
+- 22.99% chance with 5 people joining.
+- 34.18% chance with 10 people joining.
+- 40% chance that anyone dies in the heist if successful.}
+{=(slots):
+**-** 30.86% approximately.
+**-** Can win up to 300% of your bet if you did 50,000 coins (200k total after)  **OR** 120% of your bet if you bet `100k` coins (220k total after).}
+{=(bet):
+**-** 45.83% approximately
+**-** Max bet amount: `100000`
+**-** Max winnings: `120000` coins + your `100000`, so you'd have `220,000` coins after given that 100k was in your wallet.
+**-** Can't gamble if you have 2mil+ in your wallet.}
+{=(gamble):{bet}}
+{=(bankrob):{heist}}
+{=(events):
+- `2%` chance of an event spawning on every command ran.
+- this chance is increased to `2%` by the winning lottery ticket: `-ticket` for more info.
+}
+{=(tim):
+Chance of tim being nice to daunt: 0%
+Chance of tim being annoying to daunt: 100%
+Chance of tim breaking something: 25%
+Chance of tim being helpful at the end of the day: 100% <:dauntsHeart:681176189418995781>
+}
+{=(content):{if({contains({1}):{list}}==true):{1}|main}}
+
+{=(embed):{
+"description":"{{content}}",
+"author":{"name":"Chances", "icon_url": " https://i.imgur.com/JAJTC6T.gif "},
+"title":"{if({content}==main):Chances and known percentages|Success rate of {content}}",
+"color":5164484
+}}
+
+{c: cembed {channel(id)} {embed}}
+{override}

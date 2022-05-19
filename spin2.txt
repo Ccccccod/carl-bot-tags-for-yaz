@@ -1,0 +1,37 @@
+{if({contains(531563799719837698):{user(roleids)}}==true):<@&531563799719837698>/}
+{require( ):<@&665549349794742292>, <#529157952326598676>, <#530912139481972757>}{silent}
+
+{=(comment):FIX ARGS}
+{=(arg):{args(1)::}}
+{=(arg):{arg(1):(}}
+
+{=(comment):VARIABLE}
+{=(prefix):,}
+{=(syntax):`{prefix}spin2`}
+{=(rol):🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🍩🍪🥑🥓🥝💎⚜⭐🍔🌭🍕💯❤💰🎊🍾🌶🌽🍠🍯🍞🧀🍗🍬🥕🥚🥒🍫🍭🙂📦💵💴🍰}
+{=(roll):🍎,🍐,🍊,🍋,🍌,🍉,🍇,🍓,🍈,🍒,🍑,🍍,🍩,🍪,🥑,🥓,🥝,💎,⚜,⭐,🍔,🌭,🍕,💯,❤,💰,🎊,🍾,🌶,🌽,🍠,🍯,🍞,🧀,🍗,🍬,🥕,🥚,🥒,🍫,🍭,🙂,📦,💵,💴,🍰}
+{=(m1):{#:{roll}}}
+{=(m2):{#:{roll}}}
+{=(m3):{#:{roll}}}
+{=(t1):{#:{roll}}}
+{=(t2):{#:{roll}}}
+{=(t3):{#:{roll}}}
+{replace(,.):}
+
+{=(wincond):m}
+{=(failure):{all({{wincond}1}!={{wincond}2}|{{wincond}2}!={{wincond}3}|{{wincond}1}!={{wincond}3}):{rand:You No Win 😢, NO SOUP FOR YOU, Not this time, PWNED!, Riggity Riggity Wrecked!, Keep Trying!, Maybe Next Time!, Just one more...,Can't Stop Won't Stop!}|}}
+{=(almost):{any({all({{wincond}1}=={{wincond}2}|{{wincond}3}!={{wincond}1}):true}==true|{all({{wincond}1}=={{wincond}3}|{{wincond}2}!={{wincond}1}):true}==true|{all({{wincond}2}=={{wincond}3}|{{wincond}1}!={{wincond}2}):true}==true):{rand:Almost got it!,66% There!,SO CLOSE!,Close but no cigar...,Close but no banana...,You almost won that one!,Don't stop now!,Bad luck!,There is no reason for this to be so hard,Why are you still trying?,OH! Better luck next time...}|}}
+{=(win):{all({{wincond}1}=={{wincond}2}|{{wincond}2}=={{wincond}3}):1|0}}
+{=(victory):{if({win}==1):{rand:Winning! 😃, You Won!, You Did It!, You Got One!, Jackpot!, You're a Beast!, Kickin it Oldschool!, Takes a lickin! Keeps on kickin!, You owned it!, Whoop... There it is!}|}}
+{override}
+
+{=(comment):BUILD EMBED}
+{=(description):{m1} | {m2} | {m3}  ⬅\n———————**\nSpin me with: {syntax}\n{user(mention)}'s Slot Machine!}
+{=(description):{replace(\n,
+):{description}}}
+
+{=(comment):You need <@&665549349794742292> role to `,spin`. You can buy it in <#586604034228617236>}
+
+{embed(color):{if({win}==1):#00D084|#EB144C}}
+
+{if({win}==1):{user(mention)} Congratulation, you won! Be patient, <@&587016760696373248> will add yazcoin to your bank.}

@@ -1,0 +1,64 @@
+{silent}{override}
+
+{=(comment):FIX ARGS}
+{=(arg):{args(1):(}}
+{=(arg):{arg(1):)}}
+{=(arg):{arg(1):|}}
+{=(arg):{arg(1)::}}
+{=(arg):{arg(1):!}}
+
+{=(comment):VARIABLE}
+{=():}
+{=(prefix):,}
+{=(syntax):`{prefix}candy`}
+
+{=(shop):586604034228617236} {=(#shop):<#{shop}>}
+{=(staffCommand):530912139481972757} {=(#staffCommand):<#{staffCommand}>}
+{=(role_menus):638207163419852820} {=(#role_menus):<#{role_menus}>}
+
+{=(candy):896078074641285210} {=(&candy):<@&{candy}>}
+{=(pumpkin):896307446509875251} {=(&pumpkin):<@&{pumpkin}>}
+{=(burnt_gold):530509124421812239}
+{=(cool_black):530499553053376514}
+{=(galactic_purple):530500769288290314}
+{=(migrant_green):530499875457204254}
+{=(random_halloween_color):{random:{burnt_gold},{cool_black},{galactic_purple},{migrant_green}}} {=(&random_halloween_color):<@&{random_halloween_color}>}
+
+{=(cod):471677056766312448} {=(@cod):<@{cod}>}
+{=(yag):204255221017214977} {=(@yag):<@{yag}>}
+
+{=(yazcoin):<:yazcoin:561321461877309450>}
+
+{=(tips):{random:20|Some candies give you calories, but some give your cool things 🍀~10|Free roles are available in {#role_menus}~9|Always look at {@yag}'s message in {#shop} or you'll miss a lot of events and sales~10|Turn on discord developer mode to have access to some discord's features, say `,id` to see how~2|Get as many 🍬 as possible for surprise}}
+{=(tips):{if({tips}!=):**Tips:** {tips}}}
+
+{=(temp):75450│😋,8000│🌈,2500│🍬🍬,1500│💰{if({contains({pumpkin}):{user(roleids)}}==false):,3500│🎃|,550│❌🎃}}
+{=(result):{random:{replace(│,|):{temp}}}}
+
+{=(😋):😋 You ate the Candy🍬, you got {range:101-199} calories.}
+
+{=(🍬🍬):You planted the Candy🍬, it is going to grow to a Candy tree and bear {range:2-14} 🍬.}
+
+{=(🎃):🎃 You found a {&pumpkin} in your candy.}
+
+{=(❌🎃):🎃 You found a 🎃 in your candy but it's alive and ate your {&pumpkin}.}
+
+{=(🌈):🌈 You found a rainbow🌈 in your Candy🍬. It turned into {&random_halloween_color}}
+
+{=(💰):{yazcoin} You found {range:3000-16000} {yazcoin} in your Candy🍬. Wait for {@cod} to add it to your bank.}
+
+{require({user(mention)} You need Candy🍬 role to use this command, you can buy it in {#shop}. Tip: `,$iteminfo Candy`):{&candy}}
+
+{c:role custom {user(id)} -{&candy} {if({result}==🌈):+{random_halloween_color}} {if({result}==🎃):+{&pumpkin}} {if({result}==❌🎃):-{&pumpkin}}}
+
+{=(comment):CONTENT}
+{if({result}==🍬🍬):{@cod}}
+{if({result}==💰):{@cod}}
+
+{=(comment):EMBED}
+{embed(color):#de2e43}
+{embed(timestamp):now}
+{=(thumbnail):{random:https://images.unsplash.com/photo-1508361001413-7a9dca21d08a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80~https://images.unsplash.com/photo-1604227878600-00157ecb7c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80~https://images.unsplash.com/photo-1572860177022-8fda92a90c95?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80~https://images.unsplash.com/photo-1607411713289-769cd0dcce87?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80~https://images.unsplash.com/photo-1573306533578-12e23afbf2c6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=435&q=80~https://images.unsplash.com/photo-1539096567589-dbfe6d0beee2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=389&q=80~https://images.unsplash.com/photo-1510218830377-2e994ea9087d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1316&q=80~https://images.unsplash.com/photo-1572196201896-fcfd5b5a5afe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80}}
+{=(title):🍬 Candy 🍬}
+{=(description):{user(mention)} {{result}}}
+{=():}

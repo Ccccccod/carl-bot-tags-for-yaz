@@ -1,0 +1,45 @@
+{require( ):<#529157952326598676>, <#530912139481972757>, 720636020483293194}{silent}
+
+{=(comment):FIX ARGS}
+{=(arg):{args(1):(}}
+{=(arg):{arg(1):)}}
+{=(arg):{arg(1):|}}
+{=(arg):{arg(1)::}}
+
+{=(comment):VARIABLE}
+{=(prefix):,}
+{=(syntax):`{prefix}gn <number>`}
+{=(min):1}
+{=(max):2500}
+{=(reward):<:rainbow_yazcoin:807865162345873429> 0}
+{=(correctNumber):{range: {min}-{max}}}
+{=(guess):{arg}}
+{=(win):{if({guess}=={correctNumber}):true|false}}
+{=(failure):{if({win}==false):{rand:You No Win 😢, NO SOUP FOR YOU, Not this time, PWNED!, Riggity Riggity Wrecked!, Keep Trying!, Maybe Next Time!, Just one more...,Can't Stop Won't Stop!}|}}
+{=(victory):{if({win}==true):{rand:Winning! 😃, You Won!, You Did It!, You Got One!, Jackpot!, You're a Beast!, Kickin it Oldschool!, Takes a lickin! Keeps on kickin!, You owned it!, Whoop... There it is!}|}}
+
+{=(comment):BREAK}
+{=(brk):
+{all({guess}>={min}|{guess}<={max}):|1}
+{all(=={guess}):500}
+
+{=(brk):{replace(
+,):{brk}}}
+{=(isBrk):{if(=={brk}):false|true}}
+
+{=(comment):EMBED}
+{embed(timestamp):now}
+{=(description): The Correct Number: **{correctNumber}**
+{if({args}==):Syntax is {syntax}|Guess me with `,gn {min}-{max}` for a chance to win {reward} 
+{user(mention)}'s Guess: **{guess}**}
+{if({win}==true):{user(mention)} Has just guessed the correct number which is {guess}! GG to them!}}
+
+
+
+
+{all(=={guess}):1}
+{=(brk):{replace(
+,):{brk}}}
+{all({win}==true|{isBrk}==false):{user(mention)} Congratulations, you have guessed **{guess}** and won {reward}. Ask for your money in <#643292435660668928> and <@&587016760696373248> will add the money to your bank.}}
+{embed(color):{if({win}==true):#00ff47|#ff0000}}
+{if({win}==true):{user(mention)} Congratulations, you have guessed **{guess}** and won {reward}. Ask for your money in <#643292435660668928> and <@&587016760696373248> will add the money to your bank.}

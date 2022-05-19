@@ -1,0 +1,34 @@
+{=(comment):Fix args}
+{=(arg):{args(1)::}}
+{=(arg):{arg(1):(}}
+{=(arg):{arg(1):|}}
+{=(arg):{arg(1):)}}
+
+{=(comment):Variables}
+{=():}
+{=(prefix):,}
+{=(syntax):Syntax is `{prefix}moveto <where> [member]`}
+{=(staff):<@&530934024492023818>}
+{=(monitor):<@&548258164194410496>}
+{=(loyal):<@&529198919868088349>}
+{require( ):{staff},{monitor},{loyal}}
+{=(arglen):{index(&$%):{arg} &$%}}
+{=(person):{if({in({m:sgn({arg})}):-1 0 1}==false):{arg({arglen})}|}}
+{=(contain@):{in(@):{args({arglen})}}}
+
+{=(comment):Handle}
+{=(arglenDecrement):{m:trunc({arglen}-1)}}
+{=(description):{if(!={person}):This belongs in {arg(+{arglenDecrement})}.|This belongs in {arg}.}}
+{delete}
+
+{=(comment):Break}
+{=(brk):{if(=={arg}):true|false}}
+
+{=(comment):Output}
+{=(output):{if({contain@}==false):<@}{person}{if({contain@}==false):>}}
+{if({brk}==false):{output}}
+
+{=(comment):Embed}
+{embed(color):#000000}
+{embed(title):{if({brk}==false):Wrong Channel!|Moveto}}
+{embed(description):{if({brk}==false):{description}|{syntax}}}

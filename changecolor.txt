@@ -1,0 +1,26 @@
+{=(prefix):,}
+{=(a):{args(1)::}}{=(a):{a(1):(}}{=(a):{a(1):|}}{=(a):{a(1):)}}
+{=():}
+{=(r):672308660025950208 531563799719837698 582983359727272060 625017362751422474 794520904608514048  794092202779344906 801923137923055626 794828948344275005 797010944118226955 795348533661401119 798597668930060339 797037103145025546 823576947572867082 823991500920586321}
+{=(r):{r}                                       }{=(role):
+{if(true=={in({r(1)}):{user(roleids)}}):{r(1)}/}
+{if(true=={in({r(2)}):{user(roleids)}}):{r(2)}/}
+{if(true=={in({r(3)}):{user(roleids)}}):{r(3)}/}
+{if(true=={in({r(4)}):{user(roleids)}}):{r(4)}/}
+{if(true=={in({r(5)}):{user(roleids)}}):{r(5)}/}
+{if(true=={in({r(6)}):{user(roleids)}}):{r(6)}/}
+{if(true=={in({r(7)}):{user(roleids)}}):{r(7)}/}
+{if(true=={in({r(8)}):{user(roleids)}}):{r(8)}/}
+{if(true=={in({r(9)}):{user(roleids)}}):{r(9)}/}
+{if(true=={in({r(10)}):{user(roleids)}}):{r(10)}/}
+{if(true=={in({r(11)}):{user(roleids)}}):{r(11)}/}
+{if(true=={in({r(12)}):{user(roleids)}}):{r(12)}/}
+{if(true=={in({r(13)}):{user(roleids)}}):{r(13)}/}
+{if(true=={in({r(14)}):{user(roleids)}}):{r(14)}/}
+{if(true=={in({r(15)}):{user(roleids)}}):{r(15)}/}
+{if(true=={in({r(16)}):{user(roleids)}}):{r(16)}/}
+{if(true=={in({r(17)}):{user(roleids)}}):{r(17)}/}
+{if(true=={in({r(18)}):{user(roleids)}}):{r(18)}/}
+{if(true=={in({r(19)}):{user(roleids)}}):{r(19)}/}
+}
+{=(R):1,2,3,4,5,6,7,8,9,0,a,b,c,d,e,f}{{if(true=={in(/):{role}}):c:role color {role(1):/}} {if(random=={a}):{#:{R}}{#:{R}}{#:{R}}{#:{R}}{#:{R}}{#:{R}}|{a(1)}}}{override}

@@ -1,0 +1,49 @@
+{silent}{override}
+
+{=(comment):FIX ARGS}
+{=(arg):{args(1):(}}
+{=(arg):{arg(1):)}}
+{=(arg):{arg(1):|}}
+{=(arg):{arg(1)::}}
+{=(arg):{arg(1):!}}
+
+{=(comment):VARIABLE}
+{=():}
+{=(prefix):,}
+{=(syntax):`{prefix}gn <number>`}
+{=(staffCommand):530912139481972757}
+{=(cdRole):810180714103308309}
+{=(cd):{contains({cdRole}):{user(roleids)}}}
+{=(min):1}
+{=(max):2000}
+{=(reward):<:rainbow_yazcoin:807865162345873429>30000}
+{=(correctNumber):{range: {min}-{max}}}
+{=(guess):{arg}}
+{=(win):{if({correctNumber}=={guess}):true|false}}
+{=(failure):{if({win}==false):{rand:You No Win 😢, NO SOUP FOR YOU, Not this time, PWNED!, Riggity Riggity Wrecked!, Keep Trying!, Maybe Next Time!, Just one more...,Can't Stop Won't Stop!}|}}
+{=(victory):{if({win}==true):{rand:Winning! 😃, You Won!, You Did It!, You Got One!, Jackpot!, You're a Beast!, Kickin it Oldschool!, Takes a lickin! Keeps on kickin!, You owned it!, Whoop... There it is!}|}}
+
+{=(comment):CD}
+{{if({cd}==true):blacklist( ):{server(id)}}}
+
+{=(comment):BREAK}
+{=(br):
+{all({min}<={guess}|{max}>={guess}):|1}
+{all(=={guess}):1}
+}
+{=(isBr):{if({in(1):{br}}):false|true}}
+{=(brk):{replace(
+,):{brk}}}
+{=(comment):CONTENT}
+{all({win}==true|{isBr}==false):{user(mention)} Congratulations, you have guessed **{guess}** and won {reward}. Ask for your money in <#643292435660668928> and <@&587016760696373248> will add the money to your bank.}
+
+{=(comment):EMBED}
+{embed(color):{if({win}==true):#00ff47|#ff0000}}
+{embed(timestamp):now}
+{=(description):The Correct Number: **{correctNumber}**
+{user(mention)}'s Guess: **{guess}** 
+{if({channel(id)}=={staffCommand}):You can't get reward if you gn in <#{staffCommand}>}
+{if({win}==true):{user(mention)} Has just guessed the correct number which is {guess}! GG to them!}
+}
+{=(description):{if({isBrk}==true):Syntax is {syntax}|{description}}}
+{=(description):{if({args}==):Where is your number {user(proper)}?<:brainlet:799364926723850271>|{description}}}

@@ -1,0 +1,58 @@
+{=(categories): Updated As Of: **May 28, 2021**
+To see the **Shop Records** do `,records shop`
+To see the **Level Records** do `,records level`
+To see the **Role Records** do `,records role`
+To see the **Channel Records** do `,records notchannel`
+To see the **Member Records** do `,records members`}
+
+{=(list): shop level role notchannel members}
+
+{=(shop): **Richest Member:** <@471677056766312448> (33M)
+**Highest Successful Roulette Win:** <@393981127829749772> (30M)
+**Highest Successful Blackjack Win:** <@726039292987572225> (31M)
+**Highest Successful Overall Win:** <@726039292987572225> (31M)
+**Highest Successful Chicken Win:** <@393981127829749772> (2.5M)
+**Highest Any Number Roulette Win:** <@710848707368583249> (26M)
+**Highest Successful Slots Win:** <@683686162187026465>, <@710848707368583249> (8M)
+**Most Money Lost In One Bet:** <@726039292987572225> (40M)
+**Highest Successful Rob:** <@710848707368583249> (43M)}
+
+{=(level): **Highest Rank:** <@471677056766312448> (Level 98)
+**Highest Ranked Member To Never Become Staff:** <@591263251069665280> (Level 61)
+**Best XP Farmer:** <@683686162187026465> (Achieved 10K XP In One Day) (Average: 5K XP Per Day)
+**Fastest Member To Reach Level 50:** <@591263251069665280> (77 Days)
+**Most XP Gained In One Day:** <@316640010168303617> (15 Levels) (Oct 15, 2020)}
+
+{=(role): **Most Times Promoted/Demoted:** <@393015719459160075> (6) (3 Each)
+**Least Times Promoted:** <@406794858464804866>  (2 times) (Member -> Admin / Admin -> Senior Admin)
+**Most Promotions/Demotions In A Single Day:** #22 (July 22, 2020) (9 People)
+**Fastest Staff Acquiring After Joining:** <@422129522792595456> (2 Days)
+**Most Roles (Member):** <@461571292060188693> (65 Roles)
+**Most Roles (Staff):** <@710848707368583249> (111 Roles)}
+
+{=(notchannel): **Most Numbers Counted:** <@668858895367798784> (122K)
+**Most Messages In One-Word-Game:** <@510485346761441320> (9.2K)
+**Most GuessNumber Wins:** <@510485346761441320> (12)
+**Most GuessNumber Wins In One Day:** <@510485346761441320> (3) (Feb 17, 2021)
+**Longest Chain:** *No* (598 Messages)
+**Most Liked Song in <#632775463797915648>:** (Minecraft Take On Me Parody) (26 Likes) https://discord.com/channels/529138809246580745/632775463797915648/636821195102224395
+**Most Disliked Song in <#632775463797915648>:** (Justin Bieber - Baby) (31 Dislikes) https://discord.com/channels/529138809246580745/632775463797915648/786246119578796072 }
+
+{=(members): **Most Messages:** <@683686162187026465> (553K)
+**Longest Ban To Be Unbanned:** <@!401010253568933888> (Quin) (7.9 months)
+**Most Bans In One Minute By Staff:** <@422129522792595456> (4 Bans)
+**Highest Mantaro Daily Streak:** <@473544353634320384> (254 Days)
+**Most Trivia Wins:** <@677344312589156354> And <@335165277245538304> (3 Wins)
+**Highest Number Of Server Boosts Reached:** (32 Boosts)}
+
+{=(content):{if({contains({1}):{list}}==true):{1}|categories}}
+{=(icon):{replace({if({in(a_):{server(icon)}}==true):png,gif|,}):{server(icon)}}}
+{=(embed):{
+"description":"{{content}}",
+"author":{"name":"Records in Yaz's Mania!", "icon_url": "{icon}"},
+"title":"{if({content}==categories):Records|{content} records}",
+"color":5164484,
+"timestamp":"2021-5-16T00:00:00.000Z"
+}}
+{c: cembed {channel(id)} {embed}}
+{override}

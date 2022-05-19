@@ -1,0 +1,43 @@
+{=(comment):Variables}
+{=():}
+{=(prefix):,}
+{=(syntax):`{prefix}snitch <content>`}
+{=(content):{args}}
+{=(purpose):This command was made so members (mainly <@&548258164194410496>s) can report members who have broken rules to staff.
+**Note: You must provide a message link with proof of the target's broken rule. Specify the offender's name and their offense and staff members will deal with them**.
+For example: ,snitch <@668858895367798784> beating me in xp: https://discord.com/channels/529138809246580745/530954061596327946/825925600505888788.
+**Note:** if you abuse this command you will be blacklisted from it <a:slight_smileSpin:731231621579014164>.}
+
+{=(comment):Channels' ids}
+{=(bot-room):529157952326598676}
+{=(staff-chat):529183376914120714}
+{=(staff-command):530912139481972757}
+
+{=(comment):Roles' ids}
+{=(monitor):548258164194410496}
+{=(staff):530934024492023818}
+{=(yazmania):185919739678294016}
+
+{=(comment):Permissions}
+{require: {bot-room}, {staff-command}}
+{blacklist: 806902812729802753}
+
+{=(comment):Break}
+{=(break?):{if(=={1}):true|false}}
+{break({break?}==true):{user(mention)}, Syntax is {syntax}
+}
+
+{=(comment):Handle}
+{redirect:{if({break?}==false):{staff-chat}|{channel(id)}}}
+{=(title):{if({break?}==false):{user(proper)}'s snitching:|Snitch command}}
+{=(description):{if({break?}==false):{user(mention)}:
+{content}
+|
+Purpose: {purpose}
+}}
+
+{=(comment):Embed}
+{embed(color):{user(color)}}
+{embed(title):{title}}
+{embed(description):{description}}
+{embed(timestamp):now}

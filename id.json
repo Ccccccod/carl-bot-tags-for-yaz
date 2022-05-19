@@ -1,0 +1,11 @@
+{
+    "title": "__{title}__",
+    "description": "{text}",
+    "image": {
+        "url": "{image}"
+    },
+    "color": 5198940,
+    "footer": {
+        "text": "Use {prefix}id [{join(|):{ltype}}] to see how to get other discord ids."
+    }
+}

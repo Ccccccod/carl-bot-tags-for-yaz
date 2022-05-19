@@ -1,0 +1,11 @@
+{
+    "title": "{user(proper)}'s snitching:",
+    "description": "{description}",
+    "thumbnail": {
+        "url": "{user(avatar)}"
+    },
+    "color": 5198940,
+    "footer": {
+        "text": "ID: {user(id)}"
+    }
+}

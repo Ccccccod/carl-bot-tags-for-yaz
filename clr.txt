@@ -1,0 +1,275 @@
+{=(prefix):!}
+{=(tagname):clr}
+
+{=(i):1,2,3,4,5,6,7,8,9,0,A,B,C,D,E,F} 
+{=(rand.Color):{#:{i}}{#:{i}}{#:{i}}{#:{i}}{#:{i}}{#:{i}}}
+
+{=(COMMENT):Capitalizing and spacing the args for practicity.}
+{=(uargs):{all({args(1)}!=|{lower:{args(1)}}!=random):{replace(#,):{upper:{args(1)}}}|{any({lower:{args(1)}}==random|{args(1)}==):{rand.Color}}}}
+{=(spaced):{replace(A,10):{replace(B,11):{replace(C,12):{replace(D,13):{replace(E,14):{replace(F,15):{replace(, ):{uargs}}}}}}}}}
+
+{=(COMMENT):Is the input color a hex code?}
+{=(COMMENT):Puts the hex code between + to calculate them with each digit later.}
+{=(hextest):{m:trunc({join(+):{spaced}})}}
+{=(COMMENT):Input color length to check if it's equal to a hex code length later.}
+{=(length):{index(%^&):{replace(, ):{uargs}} %^&}}
+
+{=(isLength6):{if({length}==6):true|false}}
+{=(isHex):{if({hextest}=={m:trunc({hextest}/1)}):true|false}}
+
+{=(isSuccess):{all({isLength6}==true|{isHex}==true):true|false}}
+
+{=(COMMENT):RGB Converting}
+{=(hex.Red):{spaced(2)} {spaced(3)}}
+{=(dec.R):{m:trunc(({hex.Red(1)}*(16^1))+({hex.Red(2)}*(16^0)))}}
+
+{=(hex.Green):{spaced(4)} {spaced(5)}}
+{=(dec.G):{m:trunc(({hex.Green(1)}*(16^1))+({hex.Green(2)}*(16^0)))}}
+
+{=(hex.Blue):{spaced(6)} {spaced(7)}}
+{=(dec.B):{m:trunc(({hex.Blue(1)}*(16^1))+({hex.Blue(2)}*(16^0)))}}
+
+{=(COMMENT):RGB Percent.}
+{=(per.Red):{m:round(({dec.Red}/255)*100)}}
+{=(per.Green):{m:round(({dec.Red}/255)*100)}}
+{=(per.Blue):{m:round(({dec.Red}/255)*100)}}
+
+
+{=(COMMENT):Hex to Decimal Conversion}
+{=(dec):{m:trunc(({spaced(2)}*(16^5))+({spaced(3)}*(16^4))+({spaced(4)}*(16^3))+({spaced(5)}*(16^2))+({spaced(6)}*(16^1))+({spaced(7)}*(16^0)))}}
+
+
+{=(COMMENT):Complementary color in R, G and B value.}
+{=(comp.R):{m:trunc(255-{dec.R})}}
+{=(comp.G):{m:trunc(255-{dec.G})}}
+{=(comp.B):{m:trunc(255-{dec.B})}}
+
+{=(COMMENT):CLOSEST COLOR - RGB REWORK (FOR ACCURACY)}
+{=(COMMENT):ALL RGB COLORS with minimum, medium and maximum values possible.}
+{=(COMMENT):Each variable here is the RGB value. Calling the RGB value of the potentially closest color would return its name.}
+{=(0,0,0):Black}
+{=(0,128,0):Green}
+{=(0,0,128):Navy}
+{=(0,255,0):Lime}
+{=(0,255,128):Aquamarine}
+{=(0,255,255):Cyan}
+{=(0,128,255):Azure}
+{=(0,0,255):Blue}
+{=(0,128,128):Teal}
+
+{=(128,0,0):Maroon}
+{=(128,128,0):Olive}
+{=(128,0,128):Purple}
+{=(128,128,128):Gray}
+{=(128,0,255):Violet}
+{=(128,255,0):Chartreuse}
+{=(128,255,255):Electric Blue}
+{=(128,128,255):Light Slate Blue}
+{=(128,255,128):Light Green}
+
+{=(255,0,0):Red}
+{=(255,255,0):Yellow}
+{=(255,0,255):Magenta}
+{=(255,255,255):White}
+{=(255,128,0):Orange}
+{=(255,0,128):Rose}
+{=(255,255,128):Pastel Yellow}
+{=(255,128,128):Light Coral}
+{=(255,128,255):Fuchsia Pink}
+
+{=(COMMENT):Closest R, G and B value from either 0, 125 or 255 for the BASE (input) color!}
+{=(closestR):{if({dec.R}<=84):0|{if({dec.R}<=170):128|{if({dec.R}<=255):255}}}}
+{=(closestG):{if({dec.G}<=84):0|{if({dec.G}<=170):128|{if({dec.G}<=255):255}}}}
+{=(closestB):{if({dec.B}<=84):0|{if({dec.B}<=170):128|{if({dec.B}<=255):255}}}}
+{=(COMMENT):Calls the variable containing the name of the Closest color thanks to its closest RGB value.}
+{=(new.Closest):{{closestR},{closestG},{closestB}}}
+
+{=(COMMENT):Closest R, G and B value from either 0, 125 or 255 for the Complementary color!}
+{=(closestcR):{if({comp.R}<=84):0|{if({comp.R}<=170):128|{if({comp.R}<=255):255}}}}
+{=(closestcG):{if({comp.G}<=84):0|{if({comp.G}<=170):128|{if({comp.G}<=255):255}}}}
+{=(closestcB):{if({comp.B}<=84):0|{if({comp.B}<=170):128|{if({comp.B}<=255):255}}}}
+{=(COMMENT):Calls the variable containing the name of the Closest color of the Completementary color thanks to its closest RGB value.}
+{=(new.cClosest):{{closestcR},{closestcG},{closestcB}}}
+
+{=(COMMENT):Decimal value of each color.}
+{=(dec.Black):0}
+{=(dec.Blue):255}
+{=(dec.Green):65280}
+{=(dec.Cyan):65535}
+{=(dec.Gray):8421504}
+{=(dec.Red):16711680}
+{=(dec.Magenta):16711935}
+{=(dec.Yellow):16776960}
+{=(dec.White):16777215}
+
+{=(COMMENT):Calculating the difference between each color's decimal value and our current color's decimal value.}
+{=(dif.Black):{m:abs({dec.Black}-{dec})}}
+{=(dif.Blue):{m:abs({dec.Blue}-{dec})}}
+{=(dif.Green):{m:abs({dec.Green}-{dec})}}
+{=(dif.Cyan):{m:abs({dec.Cyan}-{dec})}}
+{=(dif.Gray):{m:abs({dec.Gray}-{dec})}}
+{=(dif.Red):{m:abs({dec.Red}-{dec})}}
+{=(dif.Magenta):{m:abs({dec.Magenta}-{dec})}}
+{=(dif.Yellow):{m:abs({dec.Yellow}-{dec})}}
+{=(dif.White):{m:abs({dec.White}-{dec})}}
+
+{=(COMMENT):Determines which color our color is closer to.}
+{=(is.BlackBlue):{if({dif.Blue}<={dif.Black}):Blue|Black}}
+{=(is.BlueGreen):{if({dif.Green}<={dif.Blue}):Lime|Blue}}
+{=(is.GreenCyan):{if({dif.Cyan}<={dif.Green}):Cyan|Lime}}
+{=(is.CyanGray):{if({dif.Gray}<={dif.Cyan}):Gray|Cyan}}
+{=(is.GrayRed):{if({dif.Red}<={dif.Gray}):Red|Gray}}
+{=(is.RedMagenta):{if({dif.Magenta}<={dif.Red}):Magenta|Red}}
+{=(is.MagentaYellow):{if({dif.Yellow}<={dif.Magenta}):Yellow|Magenta}}
+{=(is.YellowWhite):{if({dif.White}<={dif.Yellow}):White|Yellow}}
+
+{=(closest):{if({dec}=={dec.Black}):Black|{if({dec}<={dec.Blue}):{is.BlackBlue}|{if({dec}<={dec.Green}):{is.BlueGreen}|{if({dec}<={dec.Cyan}):{is.GreenCyan}|{if({dec}<={dec.Gray}):{is.CyanGray}|{if({dec}<={dec.Red}):{is.GrayRed}|{if({dec}<={dec.Magenta}):{is.RedMagenta}|{if({dec}<={dec.Yellow}):{is.MagentaYellow}|{if({dec}<={dec.White}):{is.YellowWhite}}}}}}}}}}}
+
+
+{=(COMMENT):Hex and hashtag.}
+{=(hex):{uargs}}
+
+
+{=(COMMENT):Divides each R, G and B values' first digit by 16; and second digit by modulo 16 to get their remainder and successfully convert them in hexadecimal.}
+{=(hex.Red1):{m:trunc({comp.R}/16)}}
+{=(hex.Red2):{m:trunc({comp.R}%16)}}
+
+{=(hex.Green1):{m:trunc({comp.G}/16)}}
+{=(hex.Green2):{m:trunc({comp.G}%16)}}
+
+{=(hex.Blue1):{m:trunc({comp.B}/16)}}
+{=(hex.Blue2):{m:trunc({comp.B}%16)}}
+
+{=(COMMENT):Puts the results of the calculations above in preHex, just for code clarity. Could be condensed in "hex" below.}
+{=(preHex):{hex.Red1} {hex.Red2} {hex.Green1} {hex.Green2} {hex.Blue1} {hex.Blue2}}
+
+{=(COMMENT):Replaces the values between 10 and 15 to be replaced by their letter equivalent in hexadecimal. This variable is the final hexadecimal value.}
+{=(comp.hex):{join():{replace(10,A):{replace(11,B):{replace(12,C):{replace(13,D):{replace(14,E):{replace(15,F):{preHex}}}}}}}}}
+
+{=(COMMENT):RGB Percent of the Complementary Color and the input color.}
+{=(per.comp.R):{m:trunc({comp.R}/255*100)}}
+{=(per.comp.G):{m:trunc({comp.G}/255*100)}}
+{=(per.comp.B):{m:trunc({comp.B}/255*100)}}
+
+{=(per.R):{m:trunc({dec.R}/255*100)}}
+{=(per.G):{m:trunc({dec.G}/255*100)}}
+{=(per.B):{m:trunc({dec.B}/255*100)}}
+
+{=(COMMENT):RGB To Decimal of the Complementary color.}
+{=(dec.comp):{m:trunc(({comp.R} * 256 * 256) + ({comp.G} * 256)+{comp.B})}}
+
+{=(COMMENT):---HSL STUFF starts here---}
+
+{=(COMMENT):Number of decimal places it should round up to.}
+{=(decimals):2}
+{=(suffix):*10^{decimals})/10^{decimals}}
+
+{=(COMMENT):Convert the RGB values to the range 0-1}
+{=(rR):{m:round(({dec.R}/255){suffix}}}
+{=(rG):{m:round(({dec.G}/255){suffix}}}
+{=(rB):{m:round(({dec.B}/255){suffix}}}
+{=(COMMENT):0.09 0.38 0.46}
+
+{=(rgbranges):{rR} {rG} {rB}}
+{=(letters):R G B}
+
+{=(maxval):{rR}}
+{=(maxval):{if({rG}>{maxval}):{rG}|{maxval}}}
+{=(maxval):{if({rB}>{maxval}):{rB}|{maxval}}}
+
+{=(maxindex):{index({maxval}):0 {rgbranges}}}
+{=(maxletter):{letters({maxindex})}}
+
+{=(minval):{rR}}
+{=(minval):{if({rG}<{minval}):{rG}|{minval}}}
+{=(minval):{if({rB}<{minval}):{rB}|{minval}}}
+
+{=(luminance):{m:round((({minval}+{maxval})/2)*100)}}
+
+{=(COMMENT):No saturation if minval and maxval are equal. Grey if all RGB values are equal. If no saturation, Hue=0.}
+{=(saturation):{if({minval}=={maxval}):0|{if({m:{luminance}/100}<=0.5):{m:({maxval}-{minval})/({maxval}+{minval})}|{m:({maxval}-{minval})/(2-{maxval}-{minval})}}}}
+{=(saturation):{m:round({saturation}*100)}}
+
+{=(R.max):({rR}-{rB})/({maxval}-{minval})}
+{=(G.max):2+({rB}-{rR})/({maxval}-{minval})}
+{=(B.max):4+({rR}-{rG})/({maxval}-{minval})}
+
+{=(hue):{if({saturation}==0):0|{m:{{maxletter}.max}}}}
+{=(COMMENT):Converting into degrees}
+{=(hue):{m:round({hue}*60)}}
+
+{=(COMMENT):---HSL FOR Complementary---}
+{=(COMMENT):Convert the RGB values to the range 0-1}
+{=(comp.rR):{m:round(({comp.R}/255){suffix}}}
+{=(comp.rG):{m:round(({comp.G}/255){suffix}}}
+{=(comp.rB):{m:round(({comp.B}/255){suffix}}}
+{=(COMMENT):0.09 0.38 0.46}
+
+{=(comp.rgbranges):{comp.rR} {comp.rG} {comp.rB}}
+{=(comp.letters):R G B}
+
+{=(comp.maxval):{comp.rR}}
+{=(comp.maxval):{if({comp.rG}>{comp.maxval}):{comp.rG}|{comp.maxval}}}
+{=(comp.maxval):{if({comp.rB}>{comp.maxval}):{comp.rB}|{comp.maxval}}}
+
+{=(comp.maxindex):{index({comp.maxval}):0 {comp.rgbranges}}}
+{=(comp.maxletter):{comp.letters({comp.maxindex})}}
+
+{=(comp.minval):{comp.rR}}
+{=(comp.minval):{if({comp.rG}<{comp.minval}):{comp.rG}|{comp.minval}}}
+{=(comp.minval):{if({comp.rB}<{comp.minval}):{comp.rB}|{comp.minval}}}
+
+{=(comp.luminance):{m:round((({comp.minval}+{comp.maxval})/2)*100)}}
+
+{=(COMMENT):No saturation if minval and maxval are equal. Grey if all RGB values are equal. If no saturation, Hue=0.}
+{=(comp.saturation):{if({comp.minval}=={comp.maxval}):0|{if({m:{comp.luminance}/100}<=0.5):{m:({comp.maxval}-{comp.minval})/({comp.maxval}+{comp.minval})}|{m:({comp.maxval}-{comp.minval})/(2-{comp.maxval}-{comp.minval})}}}}
+{=(comp.saturation):{m:round({comp.saturation}*100)}}
+
+{=(comp.R.max):({comp.rR}-{comp.rB})/({comp.maxval}-{comp.minval})}
+{=(comp.G.max):2+({comp.rB}-{comp.rR})/({comp.maxval}-{comp.minval})}
+{=(comp.B.max):4+({comp.rR}-{comp.rG})/({comp.maxval}-{comp.minval})}
+
+{=(comp.hue):{if({comp.saturation}==0):0|{m:{comp.{comp.maxletter}.max}}}}
+{=(COMMENT):Converting into degrees}
+{=(comp.hue):{m:round({comp.hue}*60)}}
+
+{=(COMMENT):---END OF HSL stuff---}
+
+{=(COMMENT):Outputs and embed.}
+{=(new.Title):Color Information}
+{embed(color):#{any({isSuccess}==true|{lower:{1}}==random|{1}==):{hex}|2f3136}}
+{=(thumb):{any({1}==|{lower:{1}}==random|{isSuccess}==true):https://dummyimage.com/100/{hex}/fff.jpg&text=+}}
+{=(footer):{prefix}{tagname} ((#)HexCode)}
+
+{=(COMMENT):Complementary image banner generator.}
+{=(comp.banner):{any({1}==|{lower:{1}}==random|{isSuccess}==true):https://dummyimage.com/350x50/{comp.hex}/fff.jpg&text=+}}
+
+{=(COMMENT):Output formatting.}
+{=(msg.Hex):Hex: `#{replace(#,):{uargs}}`}
+{=(msg.RGB):RGB: `{dec.R}, {dec.G}, {dec.B}`}
+{=(msg.PerRGB):Percent RGB: `{per.R}%, {per.G}%, {per.B}%`}
+{=(msg.HSL):HSL: `{hue}°, {saturation}%, {luminance}%`}
+{=(msg.Dec):Decimal: `{dec}`}
+{=(msg.Closest):Closest Color: `{new.Closest}`}
+
+{=(msg.Error.Length):There are 6 characters in a Hexidecimal Color Code (no alpha values), try again.}
+{=(msg.Error.Char):Hexidecimal Color Codes should only contain digits 0-9 and letters A-F. There is an invalid character present, try again.}
+
+{=(msg.Comp):**Complementary Color:**
+Hex: `#{comp.hex}`
+RGB: `{comp.R}, {comp.G}, {comp.B}`
+Percent RGB: `{per.comp.R}%, {per.comp.G}%, {per.comp.B}%`
+HSL: `{comp.hue}°, {comp.saturation}%, {comp.luminance}%`
+Decimal: `{dec.comp}`
+Closest Color: `{new.cClosest}`}
+
+{=(output.Correct):{msg.Hex}
+{msg.RGB}
+{msg.PerRGB}
+{msg.HSL}
+{msg.Dec}
+{msg.Closest}
+
+{msg.Comp}}
+
+{=(output):{any({isSuccess}==true|{args(1)}==|{lower:{args(1)}}==random):output.Correct|{if({isHex}==false):msg.Error.Char|{if({isLength6}==false):msg.Error.Length}}}}

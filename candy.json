@@ -1,0 +1,12 @@
+{
+    "title": "{title}",
+    "description": "{description}\n{tips}",
+    "thumbnail": {
+        "url": "{thumbnail}"
+    },
+    "color": 14560835,
+    "footer": {
+        "icon_url": "{user(avatar)}",
+        "text": "User ID: {user(id)}"
+    }
+}

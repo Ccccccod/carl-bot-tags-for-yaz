@@ -1,0 +1,36 @@
+{=(comment):Fix args}
+{=(arg):{args(1)::}}
+{=(arg):{arg(1):(}}
+{=(arg):{arg(1):|}}
+{=(arg):{arg(1):)}}
+
+{=(comment):Variables}
+{=(msg):1. Be Kind & Respectful To All Members & Staff. Bullying Is Not Tolerated!
+│2. No Spamming Of Any Kind.
+│3. Alternate Accounts Are Not Allowed In This Server!
+│4. No Inappropriate Text Or Photos May Be Sent.
+│5. Swearing Is Allowed, But Do Not Overuse It.
+│6. Make Sure Your Nickname Is Appropriate.
+│7. Do Not Misuse Any Channels. All Channels Have Their Names Indicating What They Are For.
+│8. Do Not Abuse Any Roles You Are Given.
+│9. Do Not Beg Me Or Staff For Roles, Roles Are Given According To What You Do.
+│10. XP Farming (Chatting With Yourself) Is Not Allowed.
+│11. Ping Spamming (Mentioning Someone Multiple Times) Is Not Allowed.
+│12. Ghost Pinging (Mentioning Someone & Deleting Instantly) Is Not Allowed.
+│13. Impersonating Someone (Using Their Name & Profile Pictures) Is Not Allowed.
+│14. You Must Have A Name That Can Be Pinged. Your Name Cannot Have Fonts At The Beginning.
+│15. Stealing Numbers In <#530530014761058304> Is Not Allowed. You May Not Lurk In The Chat While Others Are Counting & Wait For The Chance To Steal An Important Number. Also, You Are Not Allowed To Count With Any Type Of Automatic Message Sending Bot.
+│││││││││││││││││││││││││││││││││││││││││││││││││││││
+│69: <a:lenny:598778605304152065>.
+}
+{=(msg):{replace(
+,):{msg}}}
+{=(output):{msg({arg}):│}}
+
+{=(comment):validation}
+{break({in({m:sgn({arg})}):-1 0 1}==false): }
+{break(=={output}): }
+{break(true=={in(│):{output}}): }
+
+{=(comment):output}
+**Rule {output}**

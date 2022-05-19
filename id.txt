@@ -1,0 +1,29 @@
+{embed(color):{user(color)}}
+{=(prefix):,}
+{=(type):Server Channel User Message Role Category Emoji}
+{=(Server):https://i.imgur.com/eltRx34.gif|> Right click the server icon or server title bar and select "Copy ID"}
+{=(Channel):https://i.imgur.com/9j2sM8r.gif|Channel: <#ID> like `<#465563733981265921>` = <#465563733981265921>
+> Right click the channel and select "Copy ID"}
+{=(User):https://i.imgur.com/bzVJYVG.gif|User: <@ID> like `<@106429844627169280>` = <@106429844627169280>
+> Right click the user and select "Copy ID"}
+{=(Message):https://i.imgur.com/vY8bO3z.gif|> Click the  ⋮  at the top right of the message and select "Copy ID"}
+{=(Role):https://i.imgur.com/vpnfYK6.gif|Role: <@&ID> like `<@&445066659800023050>` = <@&445066659800023050>
+> Right click the role in the server's role menu and select "Copy ID"
+> or use the `!role info` command followed by the role.}
+{=(Category):https://i.imgur.com/V1a6yqX.gif|> Right click the category and select "Copy ID"}
+{=(Emoji):https://i.imgur.com/iVUe5o0.gif|Emoji: <:name:ID> like `<:YEET:454438716610707456>` = <:YEET:454438716610707456>
+> Type or select the emoji, insert a `\` in front of it & press Send.}
+
+{=(comment):Fix Args}
+{=(arg):{args(1)::}}
+{=(arg):{arg(1):(}}
+{=(arg):{arg(1):|}}
+{=(arg):{arg(1):)}}
+
+{=(largs1):{lower:{arg(1)}}}
+{=(ltype):{lower:{type}}}
+{=(image):{if({contains({largs1}):{ltype}}==true):{{type({m:trunc(1+{index({largs1}):{ltype}})})}(1):|}|https://i.imgur.com/oXpu84h.gif}}
+{=(title):{if({contains({largs1}):{ltype}}==true):{type({m:trunc(1+{index({largs1}):{ltype}})})}|Getting} IDs}
+{=(text):{if({contains({largs1}):{ltype}}==false):Is __Developer Mode__ on?
+The gif below will show you how, if you’re not sure.
+⚙ User settings → Appearance → Developer Mode|{{type({m:trunc(1+{index({largs1}):{ltype}})})}(2):|}}}

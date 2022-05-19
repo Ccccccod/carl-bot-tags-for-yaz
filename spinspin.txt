@@ -1,0 +1,58 @@
+{blacklist( ):<@&529138809246580745>}
+
+{=(comment):SPIN}
+{=(roll):🍎,🍐,🍊,🍋,🍌,🍉,🍇,🍓,🍈,🍒,🍑,🍍,🍩,🍪,🥑,🥓,🥝,💎,⚜,⭐,🍔,🌭,🍕,💯,❤,💰,🎊,🍾,🌶,🌽,🍠,🍯,🍞,🧀,🍗,🍬,🥕,🥚,🥒,🍫,🍭,🙂,📦,💵,💴,🍰}
+{=(t1):{rand:{roll}}}
+{=(t2):{rand:{roll}}}
+{=(t3):{rand:{roll}}}
+{=(m1):{rand:{roll}}}
+{=(m2):{rand:{roll}}}
+{=(m3):{rand:{roll}}}
+{=(b1):{rand:{roll}}}
+{=(b2):{rand:{roll}}}
+{=(b3):{rand:{roll}}}
+{=(a1):{args(1)}}
+{=(a1):{a1(1)::}}
+{=(a1):{a1(1):(}}
+{=(wincond):{if({a1}==top):t|{if({a1}==mid):m|{if({a1}==bot):b|m}}}}
+{=(failure):{all({{wincond}1}!={{wincond}2}|{{wincond}2}!={{wincond}3}|{{wincond}1}!={{wincond}3}):{rand:You No Win 😢, NO SOUP FOR YOU, Not this time, PWNED!, Riggity Riggity Wrecked!, Keep Trying!, Maybe Next Time!, Just one more...,Can't Stop Won't Stop!}|}}
+{=(almost):{any({all({{wincond}1}=={{wincond}2}|{{wincond}3}!={{wincond}1}):true}==true|{all({{wincond}1}=={{wincond}3}|{{wincond}2}!={{wincond}1}):true}==true|{all({{wincond}2}=={{wincond}3}|{{wincond}1}!={{wincond}2}):true}==true):{rand:Almost got it!,66% There!,SO CLOSE!,Close but no cigar...,Close but no banana...,You almost won that one!,Don't stop now!,Bad luck!,There is no reason for this to be so hard,Why are you still trying?,OH! Better luck next time...}|}}
+{=(win):{all({{wincond}1}=={{wincond}2}|{{wincond}2}=={{wincond}3}):1|0}}
+{=(victory):{if({win}==1):{rand:Winning! 😃, You Won!, You Did It!, You Got One!, Jackpot!, You're a Beast!, Kickin it Oldschool!, Takes a lickin! Keeps on kickin!, You owned it!, Whoop... There it is!}|}}
+{override}
+{=(comment):BUILD EMBED}
+{=(description):**{user(mention)}'s 🍒 SLOTS MACHINE🍒!\n{t1} │ {t2} │ {t3}  {if({wincond}==t):⬅}\n{m1} │ {m2} │ {m3}  {if({wincond}==m):⬅}\n{b1} │ {b2} │ {b3}  {if({wincond}==b):⬅}**\nSpin me with: `,spinspin [top/mid/bot]` to win <:yazcoin:561321461877309450>**31,740**}
+{c:cembed {channel(id)} { "color":{if({win}==1):65280|16711680},"description":"{description}","footer":{"text":"{failure}{victory}"},"timestamp":"{strf:%FT%T}.000Z"}}
+{if({win}==1):{user(mention)} Congratulations, you won! Ask for your <:rainbow_yazcoin:807865162345873429> in <#643292435660668928> with a link to this message and <@&767116459192746005> will add <:rainbow_yazcoin:807865162345873429> 31,740 to your bank!
+}
+
+{=(comment):SPIN}
+{=(roll):🍎,🍐,🍊,🍋,🍌,🍉,🍇,🍓,🍈,🍒,🍑,🍍,🍩,🍪,🥑,🥓,🥝,💎,⚜,⭐,🍔,🌭,🍕,💯,❤,💰,🎊,🍾,🌶,🌽,🍠,🍯,🍞,🧀,🍗,🍬,🥕,🥚,🥒,🍫,🍭,🙂,📦,💵,💴,🍰}
+{=(t1):{rand:{roll}}}
+{=(t2):{rand:{roll}}}
+{=(t3):{rand:{roll}}}
+{=(m1):{rand:{roll}}}
+{=(m2):{rand:{roll}}}
+{=(m3):{rand:{roll}}}
+{=(b1):{rand:{roll}}}
+{=(b2):{rand:{roll}}}
+{=(b3):{rand:{roll}}}
+{=(a1):{args(2)}}
+{=(a1):{a1(1)::}}
+{=(a1):{a1(1):(}}
+{=(wincond):{if({a1}==top):t|{if({a1}==mid):m|{if({a1}==bot):b|m}}}}
+{=(failure):{all({{wincond}1}!={{wincond}2}|{{wincond}2}!={{wincond}3}|{{wincond}1}!={{wincond}3}):{rand:You No Win 😢, NO SOUP FOR YOU, Not this time, PWNED!, Riggity Riggity Wrecked!, Keep Trying!, Maybe Next Time!, Just one more...,Can't Stop Won't Stop!}|}}
+{=(almost):{any({all({{wincond}1}=={{wincond}2}|{{wincond}3}!={{wincond}1}):true}==true|{all({{wincond}1}=={{wincond}3}|{{wincond}2}!={{wincond}1}):true}==true|{all({{wincond}2}=={{wincond}3}|{{wincond}1}!={{wincond}2}):true}==true):{rand:Almost got it!,66% There!,SO CLOSE!,Close but no cigar...,Close but no banana...,You almost won that one!,Don't stop now!,Bad luck!,There is no reason for this to be so hard,Why are you still trying?,OH! Better luck next time...}|}}
+{=(win):{all({{wincond}1}=={{wincond}2}|{{wincond}2}=={{wincond}3}):1|0}}
+{=(victory):{if({win}==1):{rand:Winning! 😃, You Won!, You Did It!, You Got One!, Jackpot!, You're a Beast!, Kickin it Oldschool!, Takes a lickin! Keeps on kickin!, You owned it!, Whoop... There it is!}|}}
+{override}
+{=(comment):BUILD EMBED}
+{=(description):**{user(mention)}'s 🍒 SLOTS MACHINE🍒!
+{t1} │ {t2} │ {t3}  {if({wincond}==t):⬅}
+{m1} │ {m2} │ {m3}  {if({wincond}==m):⬅}
+{b1} │ {b2} │ {b3}  {if({wincond}==b):⬅}**
+Spin me with: `,spinspin [top/mid/bot]` to win <:rainbow_yazcoin:807865162345873429> **31,740**}
+{embed(color):{if({win}==1):#00D084|#EB144C}}
+{embed(timestamp):now}
+{if({win}==1):{user(mention)} Congratulations, you won! Ask for your <:rainbow_yazcoin:807865162345873429> in <#643292435660668928> with a link to this message and <@&767116459192746005> will add <:rainbow_yazcoin:807865162345873429> 31,740 to your bank!
+}
